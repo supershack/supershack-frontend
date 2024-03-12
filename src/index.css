@@ -25,7 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items:inherit;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,6 +33,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: auto;
 }
 
 button {
@@ -56,13 +57,19 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #1963ac;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+  
   button {
     background-color: #f9f9f9;
   }
+}
+
+.image {
+  height: 200px;
+  width: 180px;
+  background-color: #efedda;
+  border-radius: 20%;
+  margin-left: 170px;
 }
