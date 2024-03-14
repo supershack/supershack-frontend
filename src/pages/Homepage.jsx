@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Homepage = () => {
   const [file, setFile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(undefined)
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -22,9 +23,12 @@ const Homepage = () => {
       })
       .then((response) => {
         console.log(response.data);
+        setErrorMessage(undefined)
       })
       .catch((error) => {
         console.error(error);
+        const errorDescription = error.response.data.message
+        setErrorMessage(errorDescription)
       });
   };
 
@@ -35,6 +39,7 @@ const Homepage = () => {
         <form className='image' onSubmit={handleSubmit}>
           <input id='input' type="file" onChange={handleFileChange} />
           <button id='image' type="submit">Upload</button>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </form>
       </div>
     </>
