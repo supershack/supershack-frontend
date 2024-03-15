@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Homepage = () => {
   const [file, setFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState(undefined)
+  const [records, setRecords] = useState(null)
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -31,6 +32,21 @@ const Homepage = () => {
         setErrorMessage(errorDescription)
       });
   };
+
+  const getAllRecords = () => {
+    axios.get("http://localhost:3000/api/records")
+      .then(response => {
+        setRecords(response.data.records)
+        //console.log(response.data.records)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getAllRecords()
+  }, [])
 
   return (
     <>
