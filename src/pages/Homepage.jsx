@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CollectorCard from "../component/CollectorCard";
 
 const Homepage = () => {
   const [file, setFile] = useState(null);
@@ -52,7 +53,8 @@ const Homepage = () => {
     <>
       <div>
         <h1>Guess Your Job Match</h1>
-        <form className='image' onSubmit={handleSubmit}>
+        <CollectorCard />
+        <form onSubmit={handleSubmit}>
           <input id='input' type="file" onChange={handleFileChange} />
           <button id='image' type="submit">Upload</button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}

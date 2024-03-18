@@ -68,9 +68,23 @@ button:focus-visible {
 }
 
 .image {
-  height: 200px;
-  width: 180px;
-  background-color: #efedda;
-  border-radius: 20%;
-  margin-left: 170px;
+  height:400px;
+  width: 350px;
+  background-color: #e1d995;
+  border-radius: 10%;
+  margin-left: 100px;
+  border-width: 1em;
+  border-color: rgb(159, 152, 152);
+  border-style: solid;
+  padding: 5px 5px;
+  transition: box-shadow 0.3 ease;
+}
+
+.image.hovered {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.image:hover {
+  transform:scale(1.10);
+  transition: transform 0.3s ease;
 }
