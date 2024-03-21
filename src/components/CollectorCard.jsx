@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CollectorCard = () => {
   const [isHovered, setIsHovered] = useState(false); // to track whether the card is currently being hovered over.
