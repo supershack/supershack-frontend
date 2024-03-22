@@ -5,8 +5,7 @@ function CollectorCardPage() {
 
     const location = useLocation();
     const uploadedImage = location.state?.uploadedImage
-
-    console.log(uploadedImage)
+    const jobData = location.state?.jobData
 
     return (
         <div>
@@ -14,6 +13,16 @@ function CollectorCardPage() {
             {uploadedImage
                 ? <img src={uploadedImage} alt="Uploaded" />
                 : null}
+            {jobData !== null
+                ? (
+                    Object.entries(jobData.fields).map(([key, value]) => (
+                        <div key={key}>
+                            {key}: {value}
+                        </div>
+                    ))
+                )
+                : null
+            }
         </div>
     )
 }

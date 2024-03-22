@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CryptoJS from 'crypto-js';
+import hashToNumberConverter from '../helperFunctions/HashNumberConverter'
 
 
-function ImageProcessing() {
+function FileUploadPage() {
     const [uploadedFile, setUploadedFile] = useState(null)
+    const [shortHashValue, setShortHashValue] = useState(null)
+
     const navigate = useNavigate();
 
     const isIOS = () => {
@@ -16,14 +20,22 @@ function ImageProcessing() {
         const file = event.target.files[0];
         if (!file) return;
 
+        const reader = new FileReader();
+        reader.onload = () => {
+            const imageData = reader.result; // Image data as a Data URL
+            const hash = CryptoJS.SHA256(imageData).toString();
+            setShortHashValue(hashToNumberConverter(hash));
+        };
+
+        reader.readAsDataURL(file);
         setUploadedFile(file)
     }
 
     useEffect(() => {
-        if (uploadedFile !== null) {
-            navigate('/loading', { replace: true, state: { uploadedFile } });
+        if (uploadedFile !== null && shortHashValue !== null) {
+            navigate('/loading', { replace: true, state: { uploadedFile, shortHashValue } });
         }
-    }, [uploadedFile])
+    }, [uploadedFile, shortHashValue])
 
     return (
         <div>
@@ -41,4 +53,4 @@ function ImageProcessing() {
 }
 
 
-export default ImageProcessing;
+export default FileUploadPage;
