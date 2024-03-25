@@ -1,5 +1,6 @@
 import CollectorCard from "../components/CollectorCard";
 import { useLocation } from 'react-router-dom';
+import EmailForm from "../components/EmailForm";
 
 function CollectorCardPage() {
 
@@ -23,6 +24,7 @@ function CollectorCardPage() {
                 )
                 : null
             }
+            <EmailForm jobId={jobData.id} />
         </div>
     )
 }

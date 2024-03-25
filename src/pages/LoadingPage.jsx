@@ -24,6 +24,9 @@ function LoadingPage() {
     const shortHashValue = location.state?.shortHashValue;
 
     //ADD COMMENTS
+
+    //PREVENT GETS AND PROCESSING IF THERE'S AN ERROR WITH THE FILE? 
+
     const getAllJobs = () => {
         axios.get("http://localhost:3000/api/jobs")
             .then(response => {
