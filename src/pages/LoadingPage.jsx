@@ -17,6 +17,7 @@ function LoadingPage() {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [errorMessage, setErrorMessage] = useState(undefined)
     const [faces, setFaces] = useState(null);
+    const [percentage, setPercentage] = useState(0);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -143,6 +144,22 @@ function LoadingPage() {
     }, [faces, errorMessage]); // Triggered whenever faces or errorMessage change
 
     useEffect(() => {
+        let interval;
+        if (isLoading) {
+            interval = setInterval(() => {
+                setPercentage(prevPercentage => {
+                    const newPercentage = prevPercentage + 1;
+                    return newPercentage <= 100 ? newPercentage : 100;
+                });
+            }, 30); // Adjust interval duration as needed
+        }
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [isLoading]);
+
+    useEffect(() => {
         if (!isLoading && faces && faces.length === 1) {
             navigate('/result', { replace: true, state: { uploadedImage, jobData } });
         }
@@ -154,16 +171,13 @@ function LoadingPage() {
     return (
         <div>
             {isLoading ? (
-                <Spinner animation="grow" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            ) : (
-                <div>
-                    {/* Your content when not loading */}
-                    <h1>Data Loaded!</h1>
-                    {/* Add your content here */}
-                </div>
-            )}
+                <>
+                    <Spinner animation="grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    <p>{percentage}%</p>
+                </>
+            ) : null}
         </div>
     )
 }
