@@ -1,75 +1,127 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+.collectorCard-page {
   display: flex;
-  place-items:inherit;
-  min-width: 320px;
-  min-height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 19.9px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin-top: auto;
+.collectorCard-flashDesign {
+  width: 319px;
+  height: 461.1px;
+  flex-shrink: 0;
+  /* border-radius: 18px;
+  border: 1px solid #2E2E2E; */
+  background: #000;
+  background-image: url('./images/Flash-Design-card-placeholder.png');
+  background-size: cover;
+  transition: transform 2s ease, box-shadow 2s ease;
+}
+
+.collectorCard-flashDesign:hover {
+  transform: scale(1.10);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Apply box-shadow on hover */
+}
+
+.collectorCard-flashDesign.move-up {
+  transform: translateY(-85%);
+}
+
+.userImage {
+  margin: 77.8px; 
+  width: 119.749px;
+  height: 119.749px;
+  flex-shrink: 0;
+  border-radius: 18.633px;
+  background: lightgray 50% / cover no-repeat, var(--white-main, #FFF);
+}
+
+.shareTitle {
+  width: 346px;
+  color: var(--white-main, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.shareNotify-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.shareNotify-container,
+.submitEmail-container {
+  opacity: 1;
+  transition: opacity 5s ease; /* Duration of the fade effect */
+}
+
+.shareNotify-container.hidden,
+.submitEmail-container.hidden {
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.shareNotify-buttonContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--black-main, #0C0C0C);
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.48px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #1963ac;
-    background-color: #ffffff;
-  }
+.shareButton {
+  display: flex;
+  width: 67px;
+  height: 67px;
   
-  button {
-    background-color: #f9f9f9;
-    
-  }
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: #1F1F1F;
 }
 
-.image {
-  height:400px;
-  width: 350px;
+.notifyButton,
+.submitButton {
+  display: flex;
+  width: 267px;
+  height: 67px;
+  padding: 25px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: #EAEAEA;
+}
+
+
+
+
+
+
+
+
+
+
+.collector-card {
+  height: 60vh;
+  width: auto;
   background-color: #e1d995;
   border-radius: 10%;
   margin-left: 100px;
@@ -77,14 +129,10 @@ button:focus-visible {
   border-color: rgb(159, 152, 152);
   border-style: solid;
   padding: 5px 5px;
-  transition: box-shadow 0.3 ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow here */
 }
 
-.image.hovered {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-.image:hover {
-  transform:scale(1.10);
-  transition: transform 0.3s ease;
+.collector-card:hover {
+  transform: scale(1.10);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Apply box-shadow on hover */
 }

@@ -1,19 +1,19 @@
-import { useState } from "react";
+function CollectorCard({ jobData, uploadedImage }) {
 
-const CollectorCard = () => {
-  const [isHovered, setIsHovered] = useState(false); // to track whether the card is currently being hovered over.
   return (
     <>
-      <div
-        className={`image ${isHovered ? "hovered" : ""}`} // to add the shadow effect to the card
-        onMouseEnter={() => setIsHovered(true)}    // event handlers to toggle the 'isHovered' state
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className={`collector-card`}>
+        <img src={uploadedImage} alt="Uploaded" />
         <h3>CollectorCard</h3>
-        <p>card content</p>
+        {Object.entries(jobData).map(([key, value]) => (
+          <p key={key}>
+            {key}: {value}
+          </p>
+        ))
+        }
       </div>
     </>
   );
-};
+}
 
 export default CollectorCard;
