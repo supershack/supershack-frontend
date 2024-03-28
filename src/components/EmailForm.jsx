@@ -1,13 +1,10 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function EmailForm({ jobId }) {
 
     const [email, setEmail] = useState("")
     const [errorMessage, setErrorMessage] = useState(undefined)
-
-    const navigate = useNavigate()
 
     const handleEmail = (e) => setEmail(e.target.value)
 
@@ -48,7 +45,7 @@ function EmailForm({ jobId }) {
                     </label>
                 </div>
                 <p>This will sign you up for our Newsletter</p>
-                <button type="submit" className="button Signup">
+                <button type="submit" className="submitButton">
                     Submit
                 </button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
