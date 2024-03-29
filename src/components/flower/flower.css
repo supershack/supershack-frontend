@@ -1,0 +1,15 @@
+.webgl-container {
+    height: 100dvh;
+    width: 100dvw;
+    top: 20px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  canvas {
+    position: fixed;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
