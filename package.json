@@ -15,12 +15,18 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "crypto-js": "^4.2.0",
+    "html-to-image": "^1.11.11",
+    "load-bmfont": "^1.4.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "three": "^0.108.0",
+    "three-bmfont-text": "^2.3.0",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@vitejs/plugin-react": "^4.2.1",
@@ -28,6 +34,7 @@
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "parcel-bundler": "^1.6.1",
     "vite": "^5.1.6"
   }
 }
