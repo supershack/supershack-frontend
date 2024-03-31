@@ -28,11 +28,11 @@ const Scene = () => {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
     texture.generateMipmaps = false;
     texture.minFilter = THREE.LinearFilter;
-  
+
     // Update the texture once it's loaded
     kineticRef.current.uniforms.uTexture.value = texture;
   }, [texture]);
-  
+
 
   // The useFrame hook will run every frame
   useFrame((state) => {

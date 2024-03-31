@@ -5,10 +5,11 @@ import CanvasComponent from '../components/flower/CanvasComponent';
 const Homepage = () => {
   return (
     <>
-      <div>
-      <CanvasComponent /> 
-        <h1>Guess Your Job Match</h1>
-        <Link to={`/upload`}>Upload Image</Link>
+      <div className="collectorCard-page">
+        <CanvasComponent />
+        <Link to={`/upload`}>
+          <button className="buttonDefault starten">Starten</button>
+        </Link>
       </div>
     </>
   );

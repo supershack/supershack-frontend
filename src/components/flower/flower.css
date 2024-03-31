@@ -1,15 +1,33 @@
 .webgl-container {
-    height: 100dvh;
+    height: 60dvh;
     width: 100dvw;
-    top: 20px;
-    position: fixed;
     background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center; 
 }
 
-canvas {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+#webgl-container canvas {
+    display: block; // Reset display property 
+    margin: auto; // Center the canvas 
 }
+
+/*
+canvas {
+width: 1000px;
+} */
+
+/* #webgl-container canvas {
+    width: 1000px !important;
+    height: auto !important;
+    margin-left: -250px; // Half of the canvas width 
+    margin-top: -250px
+} */
+
+/* #webgl-container canvas {
+     display: block; /* Reset display property 
+    margin: auto; /* Center the canvas 
+    transform-origin: center center; /* Set the transform origin to the center 
+    transform: scale(4); /* Apply the scaling transform 
+    width: calc(100% / 4); // Adjust canvas width to counteract scaling 
+    height: auto;
+} */
