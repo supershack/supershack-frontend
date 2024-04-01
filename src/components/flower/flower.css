@@ -1,15 +1,28 @@
 .webgl-container {
-    height: 100dvh;
+    height: 60%;
     width: 100dvw;
-    top: 20px;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0);
+    overflow: visible !important;
 }
 
-canvas {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+.webgl-container div {
+    overflow: visible !important;
+    position: relative !important;
+}
+
+.webgl-container canvas {
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: start; 
+    align-items: start;
+}
+
+@media screen and (min-width: 480px){
+    .webgl-container {
+        width: 100dvw;
+        overflow: visible !important;
+    }
+
+    .webgl-container div {
+        position: absolute;
+        z-index: 0;
+    }
 }

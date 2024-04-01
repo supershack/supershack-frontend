@@ -1,11 +1,31 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  width: 100%; 
+}
+
+.root-container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  padding-bottom: 10vh;
+  box-sizing: border-box;
+}
+
 .collectorCard-page {
   display: flex;
-  padding-top: 80px;
-  padding-bottom: 20px;
   flex-direction: column;
   align-items: center;
-  gap: 19.9px;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
+
 
 .collectorCard-flashDesign {
   width: 319px;
@@ -35,6 +55,48 @@
   flex-shrink: 0;
   border-radius: 18.633px;
   background: lightgray 50% / cover no-repeat, var(--white-main, #FFF);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+hr {
+  height: 2px;
+  width: 75%;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+text-decoration: none;
+}
+
+.textTop {
+  color: var(--white-main, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.textBottom {
+  color: #777;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  letter-spacing: -0.32px;
 }
 
 .shareTitle {
@@ -89,7 +151,6 @@ button {
   display: flex;
   width: 67px;
   height: 67px;
-  
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -97,8 +158,7 @@ button {
   background: #1F1F1F;
 }
 
-.notifyButton,
-.submitButton {
+.buttonDefault {
   display: flex;
   width: 267px;
   height: 67px;
@@ -107,17 +167,13 @@ button {
   align-items: center;
   gap: 10px;
   border-radius: 20px;
+  border: 1px;
   background: #EAEAEA;
 }
 
-
-
-
-
-
-
-
-
+.buttonDefault.starten {
+  width: 150px;
+}
 
 .collector-card {
   height: 60vh;

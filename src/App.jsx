@@ -12,6 +12,7 @@ function App() {
 
   return (
     <>
+      <div className="root-container-div">
       <Routes>
         <Route exact path='/' element={<Homepage />} />
         <Route exact path='/upload' element={<FileUploadPage />} />
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/failed' element={<FailedPage />} />
         <Route exact path='/result' element={<CollectorCardPage />} />
       </Routes>
+      </div>
     </>
   )
 }
