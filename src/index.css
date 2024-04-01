@@ -1,10 +1,31 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  width: 100%; 
+}
+
+.root-container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  padding-bottom: 10vh;
+  box-sizing: border-box;
+}
+
 .collectorCard-page {
   display: flex;
-  padding-bottom: 20px;
   flex-direction: column;
   align-items: center;
-  gap: 19.9px;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
+
 
 .collectorCard-flashDesign {
   width: 319px;
@@ -153,14 +174,6 @@ button {
 .buttonDefault.starten {
   width: 150px;
 }
-
-
-
-
-
-
-
-
 
 .collector-card {
   height: 60vh;

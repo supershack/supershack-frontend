@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 //import Flower from "../components/Flower";
-import CanvasComponent from '../components/flower/CanvasComponent';
+import CanvasComponent from '../components/Flower/CanvasComponent';
 
 const Homepage = () => {
   return (
