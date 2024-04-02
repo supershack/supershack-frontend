@@ -114,23 +114,37 @@ text-decoration: none;
   width: 100dvw;
   overflow: visible !important;
   background-image: url('./images/face-animation.gif');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(50% + 10px) 50%;
 }
 
 .objectOne-image {
   position: fixed;
-  top: -10%;
-  left: -42%;
-  transform: scale(0.4); /* translate(-130%, -180%) */
+  width: auto;
+  height: calc(100dvw*0.3);
+  top: 4%;
+  transform: translate(-160%, 0%);
 }
 
 .objectTwo-image {
   position: fixed;
-  top: 27%;
-  left: 42%;
-  transform: scale(0.4); /* translate(-130%, -180%) */
+  width: auto;
+  height: calc(100dvw*0.3);
+  transform: translate(150%, 50%);
+}
+
+@media screen and (max-width: 768px) {
+  .objectOne-image {
+    height: calc(100dvw*0.5);
+    transform: translate(-100%, 0%);
+  }
+
+  .objectTwo-image {
+    height: calc(100dvw*0.5);
+    position: fixed;
+    transform: translate(115%, 50%);
+  }
 }
 
 .file-input {
@@ -160,7 +174,7 @@ button {
 }
 
 
-// POSSIBLY REMOVE
+/* POSSIBLY REMOVE*/
 .shareTitle {
   width: 346px;
   color: var(--white-main, #FFF);
