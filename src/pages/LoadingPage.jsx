@@ -172,10 +172,10 @@ function LoadingPage() {
         <div>
             {isLoading ? (
                 <>
-                    <Spinner animation="grow" role="status">
+                    <Spinner className="loading-spinner-container" animation="grow" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
-                    <p>{percentage}%</p>
+                    <p className="loading-percentage">{percentage}%</p>
                 </>
             ) : null}
         </div>
