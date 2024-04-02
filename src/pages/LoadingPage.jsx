@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import Spinner from 'react-bootstrap/Spinner';
 import FileCheck from '../helperFunctions/FileCheck';
 import { setBackend, detectFaces } from '../helperFunctions/FaceDetection'
 import assignJob from '../helperFunctions/AssignJob';
+import objectThree from '../images/object-2.png'
 
 function LoadingPage() {
 
@@ -169,15 +169,16 @@ function LoadingPage() {
     }, [isLoading, faces, errorMessage]);
 
     return (
-        <div>
-            {isLoading ? (
-                <>
-                    <Spinner animation="grow" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                    <p>{percentage}%</p>
-                </>
-            ) : null}
+        <div className='defaultPage-container'>
+            <img className="objectThree-image" src={objectThree} alt="disc" />
+            <div className="textContainer">
+                <div className="loadingText">
+                    <span className="numberText">{percentage}</span>
+                    <span className="percentageText">%</span>
+                </div>
+                <p className="analysingText">ANALYSIERE...</p>
+                <p className="textTop">Bitte gedulde Dich einen Moment, während Dein Foto verarbeitet wird.</p>
+            </div>
         </div>
     )
 }

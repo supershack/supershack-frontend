@@ -20,10 +20,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
   width: 100%;
   height: 100%;
+}
+
+.defaultPage-container.loading {
+  background-image: url('./images/object-2.png');
+  background-repeat: no-repeat;
 }
 
 .collectorCard-flashDesign {
@@ -60,6 +65,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 80%;
 }
 
@@ -109,6 +115,43 @@ text-decoration: none;
   letter-spacing: -0.22px;
 }
 
+.numberText {
+  color: var(--white-main, #FFF);
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Poppins;
+  font-size: 83.294px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -1.666px;
+}
+
+.percentageText {
+  color: var(--white-main, #FFF);
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Poppins;
+  font-size: 50px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+.analysingText {
+  color: var(--white-main, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.48px;
+  margin-bottom: 10px;
+}
+
 .faceAnimation-container {
   height: 60%;
   width: 100dvw;
@@ -132,6 +175,13 @@ text-decoration: none;
   width: auto;
   height: calc(100dvw*0.3);
   transform: translate(150%, 50%);
+}
+
+.objectThree-image {
+  position: fixed;
+  height: calc(100dvh*1.25);
+  width: auto;
+  transform: translate(2%, 3%);
 }
 
 @media screen and (max-width: 768px) {
