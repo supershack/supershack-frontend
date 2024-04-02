@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CryptoJS from 'crypto-js';
 import hashToNumberConverter from '../helperFunctions/HashNumberConverter'
+import objectOne from '../images/object.png'
+import objectTwo from '../images/object-1.png'
 
 
 function FileUploadPage() {
     const [uploadedFile, setUploadedFile] = useState(null)
     const [shortHashValue, setShortHashValue] = useState(null)
+    const fileInputRef = useRef(null);
 
     const navigate = useNavigate();
 
@@ -15,6 +18,10 @@ function FileUploadPage() {
     };
 
     const captureMode = isIOS() ? "user" : "environment";
+
+    const handleButtonClick = () => {
+        fileInputRef.current.click();
+    };
 
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
@@ -38,16 +45,28 @@ function FileUploadPage() {
     }, [uploadedFile, shortHashValue])
 
     return (
-        <div>
-            <div>
-                <h1>Upload Image</h1>
-                <input
-                    type="file"
-                    accept="image/jpeg, image/png, image/heic"
-                    capture={captureMode}
-                    onChange={handleFileUpload}
-                />
+        <div className="defaultPage-container">
+            <img className="objectOne-image" src={objectOne} alt="disc" />
+            <img className="objectTwo-image" src={objectTwo} alt="spring" />
+            <div className="faceAnimation-container">
             </div>
+            <div className="textContainer">
+                <p className="textTop">Lade ein Potrait-Foto von Dir hoch, oder nimm ein neues Foto auf.</p>
+                <hr></hr>
+                <p className="textSmaller">Deine Daten sind sicher & werden nicht gespeichert.</p>
+            </div>
+            <button className="buttonDefault" onClick={handleButtonClick}>
+                Foto Upload
+            </button>
+            <input
+                id="fileInput"
+                ref={fileInputRef}
+                className='file-input'
+                type="file"
+                accept="image/jpeg, image/png, image/heic"
+                capture={captureMode}
+                onChange={handleFileUpload}
+            />
         </div>
     );
 }

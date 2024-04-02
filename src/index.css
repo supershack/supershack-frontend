@@ -16,16 +16,15 @@
   box-sizing: border-box;
 }
 
-.collectorCard-page {
+.defaultPage-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 100%;
 }
-
 
 .collectorCard-flashDesign {
   width: 319px;
@@ -99,6 +98,83 @@ text-decoration: none;
   letter-spacing: -0.32px;
 }
 
+.textSmaller {
+  color: #777;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  letter-spacing: -0.22px;
+}
+
+.faceAnimation-container {
+  height: 60%;
+  width: 100dvw;
+  overflow: visible !important;
+  background-image: url('./images/face-animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 10px) 50%;
+}
+
+.objectOne-image {
+  position: fixed;
+  width: auto;
+  height: calc(100dvw*0.3);
+  top: 4%;
+  transform: translate(-160%, 0%);
+}
+
+.objectTwo-image {
+  position: fixed;
+  width: auto;
+  height: calc(100dvw*0.3);
+  transform: translate(150%, 50%);
+}
+
+@media screen and (max-width: 768px) {
+  .objectOne-image {
+    height: calc(100dvw*0.5);
+    transform: translate(-100%, 0%);
+  }
+
+  .objectTwo-image {
+    height: calc(100dvw*0.5);
+    position: fixed;
+    transform: translate(115%, 50%);
+  }
+}
+
+.file-input {
+  display: none;
+}
+
+button {
+  color: var(--black-main, #0C0C0C);
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.buttonDefault {
+  display: inline-block;
+  height: 67px;
+  padding: 0 30px;
+  border-radius: 20px;
+  border: 1px;
+  background: #EAEAEA;
+}
+
+
+/* POSSIBLY REMOVE*/
 .shareTitle {
   width: 346px;
   color: var(--white-main, #FFF);
@@ -132,63 +208,4 @@ text-decoration: none;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-}
-
-button {
-  color: var(--black-main, #0C0C0C);
-  text-align: center;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: Poppins;
-  font-size: 24px;
-  font-style: italic;
-  font-weight: 800;
-  line-height: normal;
-  letter-spacing: -0.48px;
-}
-
-.shareButton {
-  display: flex;
-  width: 67px;
-  height: 67px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 20px;
-  background: #1F1F1F;
-}
-
-.buttonDefault {
-  display: flex;
-  width: 267px;
-  height: 67px;
-  padding: 25px 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 20px;
-  border: 1px;
-  background: #EAEAEA;
-}
-
-.buttonDefault.starten {
-  width: 150px;
-}
-
-.collector-card {
-  height: 60vh;
-  width: auto;
-  background-color: #e1d995;
-  border-radius: 10%;
-  margin-left: 100px;
-  border-width: 1em;
-  border-color: rgb(159, 152, 152);
-  border-style: solid;
-  padding: 5px 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow here */
-}
-
-.collector-card:hover {
-  transform: scale(1.10);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Apply box-shadow on hover */
 }
