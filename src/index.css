@@ -26,16 +26,25 @@
   height: 100%;
 }
 
+.collectorCard-page{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
 .collectorCard-flashDesign {
   width: 319px;
   height: 461.1px;
   flex-shrink: 0;
-  /* border-radius: 18px;
-  border: 1px solid #2E2E2E; */
+  border-radius: 18px;
+  border: 1px solid #2E2E2E; 
   background: #000;
   background-image: url('./images/Flash-Design-card-placeholder.png');
   background-size: cover;
   transition: transform 2s ease, box-shadow 2s ease;
+  
 }
 
 .collectorCard-flashDesign:hover {
@@ -222,6 +231,7 @@ button {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
   z-index: 9999;
+  
 }
 
 .visually-hidden{
@@ -232,7 +242,10 @@ button {
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
+  
 }
+
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -240,7 +253,7 @@ button {
 
 .loading-percentage {
   font-size: 50px; /* Adjust font size as needed */
-  margin-top: 50vh;
-  margin-left: 50vw;
+  margin-top: 40vh;
+  margin-left: 40vw;
    /* Adjust margin top as needed */
 }
