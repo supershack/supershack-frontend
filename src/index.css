@@ -32,6 +32,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    
 }
 
 .collectorCard-flashDesign {
@@ -40,7 +41,7 @@
   flex-shrink: 0;
   border-radius: 18px;
   border: 1px solid #2E2E2E; 
-  background: #000;
+  background: #bdbaba;
   background-image: url('./images/Flash-Design-card-placeholder.png');
   background-size: cover;
   transition: transform 2s ease, box-shadow 2s ease;
@@ -49,7 +50,7 @@
 
 .collectorCard-flashDesign:hover {
   transform: scale(1.10);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Apply box-shadow on hover */
+  box-shadow: 0 0 30px rgba(209, 205, 205, 0.7); /* Apply box-shadow on hover */
 }
 
 .collectorCard-flashDesign.move-up {
@@ -62,7 +63,40 @@
   height: 119.749px;
   flex-shrink: 0;
   border-radius: 18.633px;
-  background: lightgray 50% / cover no-repeat, var(--white-main, #FFF);
+  background-image: url('../src/images/GoldenFrame-min.png');
+}
+.details-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.details {
+  width: 80px;
+  height: 50px ;
+  background-color: #EAEAEA;
+  border-radius: 10%;
+}
+.top-left {
+  position: absolute;
+  top: 25px;
+  left: 178px;
+}
+.top-right {
+  position: absolute;
+  top: 92px;
+  left: 178px;
+}
+.bottom-left {
+  position: absolute;
+  top: 92px;
+  left: 45px;
+}
+.bottom-right {
+  position: absolute;
+  top: 25px;
+  left: 45px;
 }
 
 .textContainer {
