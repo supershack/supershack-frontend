@@ -24,8 +24,6 @@ function CollectorCard({ jobData, uploadedImage }) {
     }
   }
 
-  console.log(jobData)
-
   return (
     <>
       <div className="collectorCard">
