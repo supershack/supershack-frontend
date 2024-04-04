@@ -27,30 +27,26 @@ function EmailForm({ jobId }) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className="inputContainer">
-                    <input
-                        type="email"
-                        name="email"
-                        className="inputField"
-                        placeholder="Email"
-                        required={true}
-                        value={email}
-                        onChange={handleEmail}
-                    />
-                    <label
+        <form className="textContainer" onSubmit={handleSubmit}>
+            <input
+                type="email"
+                name="email"
+                className="inputField"
+                placeholder="max@muster.de"
+                required={true}
+                value={email}
+                onChange={handleEmail}
+            />
+            {/* <label
                         className="inputLabel"
                         htmlFor="email">Email
-                    </label>
-                </div>
-                <p className='registerNote-text'>Mit der Anmeldung bestätigst du, dass du einverstanden bist, dass wir dich kontaktieren dürfen, sobald wir den Job für dich gefunden haben oder eine passende Alternative.</p>
-                <button type="submit" className="submitButton">
-                    Submit
-                </button>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-            </form>
-        </div>
+                    </label> */}
+            <p className='textSmaller'>Mit der Anmeldung bestätigst du, dass du einverstanden bist, dass wir dich kontaktieren dürfen, sobald wir den Job für dich gefunden haben oder eine passende Alternative.</p>
+            <button type="submit" className="buttonDefault">
+                Abschicken
+            </button>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </form>
     )
 }
 

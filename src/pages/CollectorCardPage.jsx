@@ -6,6 +6,11 @@ import EmailForm from "../components/EmailForm";
 
 function CollectorCardPage() {
 
+    // Risk of animation running when not intended?
+    // Set to false on "Benachrichtigen" click, but make 
+    // sure it doesn't start again after translation or
+    // in any reload. Maybe set to false and find a work around?
+    const [isAnimated, setIsAnimated] = useState(true);
     const imageRef = useRef(null);
 
     const [jobData, setJobData] = useState({
@@ -26,12 +31,14 @@ function CollectorCardPage() {
     const showEmailForm = (event) => {
         event.preventDefault()
 
+        setIsAnimated(false)
         setIsHidden(false)
         setIsMovedUp(true);
     }
 
     const handleShare = async () => {
         try {
+            setIsAnimated(false)
             // Convert HTML element to Blob object
             const newFile = await toBlob(imageRef.current);
 
@@ -60,6 +67,7 @@ function CollectorCardPage() {
 
             // Share image data
             await navigator.share(data);
+            setIsAnimated(true)
         } catch (err) {
             console.error('Error:', err);
         }
@@ -78,31 +86,37 @@ function CollectorCardPage() {
 
 
     return (
-        <div className="collectorCard-page">
-            <div className={`collectorCard-flashDesign ${isMovedUp ? 'move-up' : ''}`} ref={imageRef}>
-                <img src={uploadedImage} alt="userImage" className="userImage" />
+        <div className="defaultPage-container result">
+            <div className={`collectorCard-container ${isAnimated ? 'animation' : ''} ${isMovedUp ? 'move-up' : ''}`} ref={imageRef}>
+                <CollectorCard jobData={jobData} uploadedImage={uploadedImage} />
             </div>
-            {/* <CollectorCard jobData={jobData} uploadedImage={uploadedImage} /> */}
-            <div className={`shareNotify-container ${isHidden ? '' : 'hidden'}`}>
-                <p className="shareTitle">Wow, Dein Schicksal! Wir sagen dir Bescheid, sobald dieser Job verfügbar ist.</p>
-                <div className="shareNotify-buttonContainer">
-                    <div className="shareButton">
+            {isHidden
+                ? (
+                    <>
+                        <div className={`textContainer ${isHidden ? '' : 'hidden'}`}>
+                            <p className="textTop">Wow, Dein Schicksal! Wir sagen dir Bescheid, sobald dieser Job verfügbar ist.</p>
+                        </div>
+                        <div className="shareNotify-buttonContainer">
+                            <div className="shareButton">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none" onClick={handleShare}>
-                            <path fillRule="evenodd" clipRule="evenodd" d="M19.9656 0.403664C19.9186 0.315664 19.8476 0.243664 19.7596 0.196664C17.6736 -0.913336 5.19458 2.95466 1.96658 4.81666C1.12558 5.30166 0.750575 5.87166 0.853575 6.50766C1.15058 8.34966 6.11358 9.74566 8.80658 10.3707L13.8636 5.31466C14.1566 5.02166 14.6316 5.02166 14.9246 5.31466C15.2176 5.60766 15.2176 6.08266 14.9246 6.37566L9.81858 11.4797C10.4596 14.2007 11.8406 19.0157 13.6536 19.3077C13.7216 19.3187 13.7896 19.3247 13.8566 19.3247C14.4106 19.3247 14.9106 18.9447 15.3436 18.1947C17.2056 14.9697 21.0766 2.49266 19.9656 0.403664Z" fill="white" />
-                        </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none" onClick={handleShare}>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M19.9656 0.403664C19.9186 0.315664 19.8476 0.243664 19.7596 0.196664C17.6736 -0.913336 5.19458 2.95466 1.96658 4.81666C1.12558 5.30166 0.750575 5.87166 0.853575 6.50766C1.15058 8.34966 6.11358 9.74566 8.80658 10.3707L13.8636 5.31466C14.1566 5.02166 14.6316 5.02166 14.9246 5.31466C15.2176 5.60766 15.2176 6.08266 14.9246 6.37566L9.81858 11.4797C10.4596 14.2007 11.8406 19.0157 13.6536 19.3077C13.7216 19.3187 13.7896 19.3247 13.8566 19.3247C14.4106 19.3247 14.9106 18.9447 15.3436 18.1947C17.2056 14.9697 21.0766 2.49266 19.9656 0.403664Z" fill="white" />
+                                </svg>
+                            </div>
+                            <button
+                                className="buttonDefault"
+                                onClick={showEmailForm}>
+                                Benachrichtigen
+                            </button>
+                        </div>
+                    </>
+                )
+                : (
+                    <div className={`textContainer ${isHidden ? 'hidden' : ''}`}>
+                        <p className="findJob-text">WIR FINDEN IHN</p>
+                        <EmailForm jobId={job.id} />
                     </div>
-                    <button
-                        className="notifyButton"
-                        onClick={showEmailForm}>
-                        Benachrichtigen
-                    </button>
-                </div>
-            </div>
-            <div className={`submitEmail-container ${isHidden ? 'hidden' : ''}`}>
-                <p className="findJob-text">WIR FINDEN IHN</p>
-                <EmailForm jobId={job.id} />
-            </div>
+                )}
         </div>
     )
 }
