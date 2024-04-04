@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { toBlob } from "html-to-image";
 import EmailForm from "../components/EmailForm";
+import getRandomImage from "../helperFunctions/ImageLoader";
 
 function CollectorCardPage() {
 
@@ -12,6 +13,14 @@ function CollectorCardPage() {
     // in any reload. Maybe set to false and find a work around?
     const [isAnimated, setIsAnimated] = useState(true);
     const imageRef = useRef(null);
+
+    const setRandomBackground = () => {
+        const collectorCardElm = document.getElementsByClassName("collectorCard")
+        const randomBackground = getRandomImage();
+
+        // collectorCardElm[0].setAttribute("background-image", `url(./${randomBackground.slice(5)})`)
+        collectorCardElm[0].style.backgroundImage = `url(${randomBackground})`;
+    }
 
     const [jobData, setJobData] = useState({
         Name: '',
@@ -73,6 +82,9 @@ function CollectorCardPage() {
         }
     };
 
+    useEffect(() => {
+        setRandomBackground()
+    }, [])
 
     useEffect(() => {
         setJobData({

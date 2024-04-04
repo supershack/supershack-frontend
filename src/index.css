@@ -38,6 +38,8 @@
 /* These 2 only work for max-width: 470px */
 .collectorCard-container {
   position: relative;
+  display: flex;
+  justify-content:center;
   width: 75%;
   margin-bottom: 20px;
   max-width: calc(100dvh*0.8);
@@ -70,11 +72,21 @@
 
 .collectorCard {
   position: relative;
-  width: 100%;
+  width: 95%;
   aspect-ratio: 2/3;
   background-size: cover;
   background-position: center;
-  background-image: url('./images/Flash-Design-card-placeholder.png');
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.logoImage {
+  position: absolute;
+  width: 6%;
+  top: 0.4%;
+  left: 94%;
+  z-index: 1;
 }
 
 .userImage-container {
@@ -104,6 +116,14 @@
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+.stickerImage {
+  position: absolute;
+  width: 100%;
+  top: -35%;
+  left: 45%;
+  z-index: 2;
 }
 
 .jobData-container {
@@ -230,6 +250,43 @@ text-decoration: none;
   letter-spacing: -0.32px;
   padding-left: 10px;
   z-index: 1;
+}
+
+.rarityText,
+.leapwizeText,
+.cardNumberText {
+  color: var(--white-main, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 10.534px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.rarityText-container {
+  text-align: center;
+  margin-top: auto;
+  height: 20px;
+}
+
+.rarityText {
+  margin-top: 10px;
+}
+
+.leapwizeText {
+  position: absolute;
+  width: 40%;
+  transform: rotate(-90deg);
+  top: 48%;
+  left: 80.5%;
+}
+
+.cardNumberText {
+  position: absolute;
+  transform: rotate(90deg);
+  top: 26%;
+  left: -3.5%;
 }
 
 .attributeNameText {

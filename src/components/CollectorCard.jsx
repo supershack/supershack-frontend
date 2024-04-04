@@ -1,4 +1,6 @@
 import foregroundImg from "../images/GoldenFrame-min.png"
+import sticker from "../images/lw-sticker-min.png"
+import logo from "../images/Logo-Mono-min.png"
 
 function CollectorCard({ jobData, uploadedImage }) {
 
@@ -24,15 +26,20 @@ function CollectorCard({ jobData, uploadedImage }) {
     }
   }
 
-  console.log(jobData)
-
   return (
     <>
       <div className="collectorCard">
         <div className="userImage-container">
           <img src={uploadedImage} alt="userImage" className="userImage" />
           <img src={foregroundImg} alt="foregroundImage" className="foregroundImage" />
+          <img src={sticker} alt="stickerImage" className="stickerImage" />
         </div>
+        <img src={logo} alt="logoImage" className="logoImage" />
+        <div className="rarityText-container">
+          <p className="rarityText">SUPER RARE</p>
+        </div>
+        <p className="leapwizeText">LEAPWIZE X YOU</p>
+        <p className="cardNumberText">1 OF 1</p>
         <div className="jobData-container">
           <div className="jobTitle-container">
             <p className="jobTitleText">{jobData.Name}</p>
