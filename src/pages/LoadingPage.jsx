@@ -169,9 +169,9 @@ function LoadingPage() {
     }, [isLoading, faces, errorMessage]);
 
     return (
-        <div className='defaultPage-container'>
-            <img className="objectThree-image" src={objectThree} alt="disc" />
-            <div className="textContainer">
+        <div className='defaultPage-container loading'>
+            <img className="objectThree-image loading" src={objectThree} alt="disc" />
+            <div className="textContainer loading">
                 <div className="loadingText">
                     <span className="numberText">{percentage}</span>
                     <span className="percentageText">%</span>

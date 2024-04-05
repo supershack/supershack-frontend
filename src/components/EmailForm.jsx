@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-function EmailForm({ jobId }) {
+function EmailForm({ jobId, isEmailSet, onChange }) {
 
     const [email, setEmail] = useState("")
     const [errorMessage, setErrorMessage] = useState(undefined)
@@ -15,9 +15,14 @@ function EmailForm({ jobId }) {
 
         axios.post("http://localhost:3000/api/users", requestBody)
             .then((response) => {
-                console.log(response)
-                const errorDescription = response.data.message
-                setErrorMessage(errorDescription)
+                if (response.data.message === "created") {
+                    onChange(true)
+                    setErrorMessage(undefined)
+                }
+                else {
+                    const errorDescription = response.data.message
+                    setErrorMessage(errorDescription)
+                }
             })
             .catch((error) => {
                 console.log(error)
@@ -42,10 +47,10 @@ function EmailForm({ jobId }) {
                         htmlFor="email">Email
                     </label> */}
             <p className='textSmaller'>Mit der Anmeldung bestätigst du, dass du einverstanden bist, dass wir dich kontaktieren dürfen, sobald wir den Job für dich gefunden haben oder eine passende Alternative.</p>
-            <button type="submit" className="buttonDefault">
+            <button type="submit" className="buttonDefault submit">
                 Abschicken
             </button>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="textSmall">{errorMessage}</p>}
         </form>
     )
 }

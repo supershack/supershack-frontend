@@ -12,6 +12,10 @@ function CollectorCardPage() {
     // sure it doesn't start again after translation or
     // in any reload. Maybe set to false and find a work around?
     const [isAnimated, setIsAnimated] = useState(true);
+    const [isEmailSet, setIsEmailSet] = useState(false)
+    const [isHidden, setIsHidden] = useState(true)
+    const [isMovedUp, setIsMovedUp] = useState(false);
+
     const imageRef = useRef(null);
 
     const setRandomBackground = () => {
@@ -30,12 +34,13 @@ function CollectorCardPage() {
         attribute_coolness: 0
     })
 
-    const [isHidden, setIsHidden] = useState(true)
-    const [isMovedUp, setIsMovedUp] = useState(false);
-
     const location = useLocation();
     const uploadedImage = location.state?.uploadedImage
     const job = location.state?.jobData
+
+    const handleChange = (value) => {
+        setIsEmailSet(value);
+    };
 
     const showEmailForm = (event) => {
         event.preventDefault()
@@ -124,9 +129,10 @@ function CollectorCardPage() {
                     </>
                 )
                 : (
-                    <div className={`textContainer ${isHidden ? 'hidden' : ''}`}>
+                    <div className={`textContainer final ${isHidden ? 'hidden' : ''}`}>
                         <p className="findJob-text">WIR FINDEN IHN</p>
-                        <EmailForm jobId={job.id} />
+                        <EmailForm jobId={job.id} isEmailSet={isEmailSet} onChange={handleChange} />
+                        <p>{isEmailSet}</p>
                     </div>
                 )}
         </div>
