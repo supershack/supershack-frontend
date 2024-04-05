@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { toBlob } from "html-to-image";
 import EmailForm from "../components/EmailForm";
+import getRandomImage from "../helperFunctions/ImageLoader";
 
 function CollectorCardPage() {
 
@@ -16,6 +17,14 @@ function CollectorCardPage() {
     const [isMovedUp, setIsMovedUp] = useState(false);
 
     const imageRef = useRef(null);
+
+    const setRandomBackground = () => {
+        const collectorCardElm = document.getElementsByClassName("collectorCard")
+        const randomBackground = getRandomImage();
+
+        // collectorCardElm[0].setAttribute("background-image", `url(./${randomBackground.slice(5)})`)
+        collectorCardElm[0].style.backgroundImage = `url(${randomBackground})`;
+    }
 
     const [jobData, setJobData] = useState({
         Name: '',
@@ -77,6 +86,10 @@ function CollectorCardPage() {
             console.error('Error:', err);
         }
     };
+
+    useEffect(() => {
+        setRandomBackground()
+    }, [])
 
     useEffect(() => {
         setJobData({
