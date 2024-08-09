@@ -1,6 +1,7 @@
 .webgl-container {
     height: 60%;
     width: 100dvw;
+    padding-top: 40px;
     overflow: visible !important;
 }
 
