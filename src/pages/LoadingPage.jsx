@@ -83,17 +83,17 @@ function LoadingPage() {
 
     const faceDetectionError = (detectedFaces) => {
         if (detectedFaces.length === 0) {
-            setErrorMessage('Make sure to upload a picture where a person is visible.')
+            setErrorMessage('Stellen Sie sicher, dass Sie ein Bild hochladen, auf dem eine Person zu sehen ist.')
         }
 
         if (detectedFaces.length > 1) {
-            setErrorMessage('Please upload an image with exactly one face.')
+            setErrorMessage('Bitte laden Sie ein Bild hoch, auf dem genau ein Gesicht zu sehen ist.')
         }
     }
 
     const processImage = async () => {
         if (!uploadedImage) {
-            setErrorMessage("No image");
+            setErrorMessage("Kein Bild");
             return;
         }
 
