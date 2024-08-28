@@ -53,7 +53,7 @@ function FileUploadPage() {
             <div className="textContainer">
                 <p className="textTop">Lade ein Potrait-Foto von Dir hoch, oder nimm ein neues Foto auf.</p>
                 <hr></hr>
-                <p className="textSmaller">Deine Daten sind sicher & werden nicht gespeichert.</p>
+                <p className="textSmallerBottom">Deine Daten sind sicher & werden nicht gespeichert.</p>
             </div>
             <button className="buttonDefault" onClick={handleButtonClick}>
                 Foto Upload

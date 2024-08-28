@@ -177,7 +177,7 @@ function LoadingPage() {
                     <span className="percentageText">%</span>
                 </div>
                 <p className="analysingText">ANALYSIERE...</p>
-                <p className="textTop">Bitte gedulde Dich einen Moment, <br></br>während Dein Foto verarbeitet <br></br>wird.</p>
+                <p className="textBottom">Bitte gedulde Dich einen Moment, <br></br>während Dein Foto verarbeitet <br></br>wird.</p>
             </div>
         </div>
     )

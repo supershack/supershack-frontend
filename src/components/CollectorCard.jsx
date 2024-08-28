@@ -1,4 +1,3 @@
-import React from 'react';
 import foregroundImg from "../images/GoldenFrame-min.png";
 import sticker from "../images/lw-sticker-min.png";
 import logo from "../images/Logo-Mono-min.png";
@@ -8,7 +7,7 @@ function CollectorCard({ jobData, uploadedImage }) {
   const getBackgroundStyle = (value) => {
     const percentage = Math.floor(value) * 10;
     return {
-      background: `linear-gradient(to top, rgba(255, 255, 255, 1) ${percentage}%, rgba(255, 255, 255, 0) ${percentage}%)`,
+      height: `${percentage}%`,
     };
   };
 
@@ -36,7 +35,8 @@ function CollectorCard({ jobData, uploadedImage }) {
             { value: jobData.attribute_fun, name: 'FUN' },
             { value: jobData.attribute_freetime, name: 'FREIZEIT' }
           ].map((attr, index) => (
-            <div className="jobAttribute-individual" key={index} style={getBackgroundStyle(attr.value)}>
+            <div className="jobAttribute-individual" key={index}>
+              <div className="backgroundFill" style={getBackgroundStyle(attr.value)}></div>
               <p className="valueText">{Math.floor(attr.value)}/10</p>
               <p className="attributeNameText">{attr.name}</p>
             </div>
