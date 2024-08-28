@@ -1,76 +1,49 @@
-import foregroundImg from "../images/GoldenFrame-min.png"
-import sticker from "../images/lw-sticker-min.png"
-import logo from "../images/Logo-Mono-min.png"
+import foregroundImg from "../images/GoldenFrame-min.png";
+import sticker from "../images/lw-sticker-min.png";
+import logo from "../images/Logo-Mono-min.png";
 
 function CollectorCard({ jobData, uploadedImage }) {
 
-  const jobAttributeElements = document.querySelectorAll('.jobAttribute-individual');
-
-  jobAttributeElements.forEach((element, index) => {
-    // Set the width and color of the fill based on an external value
-    const fillWidth = getFillWidth(index); // Example: function to get fill width based on index
-
-    element.style.setProperty('--fill-width', fillWidth);
-  });
-
-  function getFillWidth(index) {
-    // Example logic to determine fill width based on index
-    if (index === 0) {
-      return `${Math.floor(jobData.attribute_coolness) * 10}%`;
-    } else if (index === 1) {
-      return `${Math.floor(jobData.attribute_wealth) * 10}%`;
-    } else if (index === 2) {
-      return `${Math.floor(jobData.attribute_fun) * 10}%`;
-    } else {
-      return `${Math.floor(jobData.attribute_freetime) * 10}%`;
-    }
-  }
+  const getBackgroundStyle = (value) => {
+    const percentage = Math.floor(value) * 10;
+    return {
+      height: `${percentage}%`,
+    };
+  };
 
   return (
-    <>
-      <div className="collectorCard">
-        <div className="userImage-container">
-          <img src={uploadedImage} alt="userImage" className="userImage" />
-          <img src={foregroundImg} alt="foregroundImage" className="foregroundImage" />
-          <img src={sticker} alt="stickerImage" className="stickerImage" />
-        </div>
-        <img src={logo} alt="logoImage" className="logoImage" />
-        <div className="rarityText-container">
-          <p className="rarityText">SUPER RARE</p>
-        </div>
-        <p className="leapwizeText">LEAPWIZE X YOU</p>
-        <p className="cardNumberText">1 OF 1</p>
-        <div className="jobData-container">
-          <div className="jobTitle-container">
-            <p className="jobTitleText">{jobData.Name}</p>
-          </div>
-          <div className="jobAttributes-container">
-            <div className="jobAttribute-individual">
-              <p className="valueText">{Math.floor(jobData.attribute_coolness)}/10</p>
-              <p className="attributeNameText">COOLNESS</p>
-            </div>
-            <div className="jobAttribute-individual">
-              <p className="valueText">{Math.floor(jobData.attribute_wealth)}/10</p>
-              <p className="attributeNameText">GELD</p>
-            </div>
-            <div className="jobAttribute-individual">
-              <p className="valueText">{Math.floor(jobData.attribute_fun)}/10</p>
-              <p className="attributeNameText">FUN</p>
-            </div>
-            <div className="jobAttribute-individual">
-              <p className="valueText">{Math.floor(jobData.attribute_freetime)}/10</p>
-              <p className="attributeNameText">FREIZEIT</p>
-            </div>
-          </div>
-        </div>
-        {/* {Object.entries(jobData).map(([key, value]) => (
-          <p key={key}>
-            {key}: {value}
-          </p>
-        ))
-        } */}
+    <div className="collectorCard">
+      <div className="userImage-container">
+        <img src={uploadedImage} alt="userImage" className="userImage" />
+        <img src={foregroundImg} alt="foregroundImage" className="foregroundImage" />
+        <img src={sticker} alt="stickerImage" className="stickerImage" />
       </div>
-    </>
+      <img src={logo} alt="logoImage" className="logoImage" />
+      <div className="rarityText-container">
+        <p className="rarityText">SUPER RARE</p>
+      </div>
+      <p className="leapwizeText">LEAPWIZE X YOU</p>
+      <p className="cardNumberText">1 OF 1</p>
+      <div className="jobData-container">
+        <div className="jobTitle-container">
+          <p className="jobTitleText">{jobData.Name}</p>
+        </div>
+        <div className="jobAttributes-container">
+          {[
+            { value: jobData.attribute_coolness, name: 'COOLNESS' },
+            { value: jobData.attribute_wealth, name: 'GELD' },
+            { value: jobData.attribute_fun, name: 'FUN' },
+            { value: jobData.attribute_freetime, name: 'FREIZEIT' }
+          ].map((attr, index) => (
+            <div className="jobAttribute-individual" key={index}>
+              <div className="backgroundFill" style={getBackgroundStyle(attr.value)}></div>
+              <p className="valueText">{Math.floor(attr.value)}/10</p>
+              <p className="attributeNameText">{attr.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

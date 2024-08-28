@@ -61,14 +61,15 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 40vh;
-  height: 60vh;
+  width: 42vh;
+  height: 61vh;
   margin-bottom: 20px;
   perspective: 1000px;
-  border: #b6b6b6b7 solid 1px;
+  border: black solid 8px; /* Increased border width from 1px to 4px */
   border-radius: 10px;
-  background-color: black;
+  background-color: black; /* Ensure background color remains black */
 }
+
 
 .collectorCard-container.animation {
   animation: changePerspective 15s infinite;
@@ -126,10 +127,10 @@
 
 .userImage-container {
   position: absolute;
-  max-width: 40%;
+  max-width: 53%;
   aspect-ratio: 1/1;
-  top: 14%;
-  left: 30%;
+  top: 8%;
+  left: 23%;
   background-color: black;
   border-radius: 10px;
   display: flex;
@@ -139,8 +140,8 @@
 
 .userImage {
   position: relative;
-  width: 93%;
-  height: 93%;
+  width: 97%;
+  height: 97%;
   z-index: 0;
   border-radius: 10px; 
 }
@@ -169,7 +170,7 @@
   justify-content: center;
   width: 100%;
   height: 50%;
-  top: 44%;
+  top: 46%;
 }
 
 .jobTitle-container {
@@ -187,16 +188,7 @@
   font-weight: 800;
   line-height: normal;
   letter-spacing: -1px;
-  text-shadow: 
-        2px 2px 0 #000, /* Right-down */
-        -2px 2px 0 #000, /* Left-down */
-        2px -2px 0 #000, /* Right-up */
-        -2px -2px 0 #000, /* Left-up */
-        2px 0 0 #000, /* Right */
-        -2px 0 0 #000, /* Left */
-        0 2px 0 #000, /* Down */
-        0 -2px 0 #000; /* Up */
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .jobAttributes-container {
@@ -208,21 +200,40 @@
 }
 
 .jobAttribute-individual {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 120px;
-  height: 6dvh;
+  position: relative;
+  width: 115px;
+  height: 8dvh;
   border-radius: 10px;
   margin: 5px;
-  background-color: rgba(255, 255, 255, 0.46);
-  border: #000000 solid 1px;
-  backdrop-filter: blur(1px);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); /* Safari compatibility */  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start; 
+  padding: 5px; 
+}
+
+.backgroundFill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px; 
+  z-index: 0; 
 }
 
 .jobAttribute-individual p {
-  width: 100%;
-  align-self: flex-end;
+  position: relative;
+  z-index: 1; 
+  margin: 0;
+  padding: 0; 
+  line-height: 1; 
+  margin: 2px;
+  font-size: 11px; 
+
 }
 
 .textContainer {
@@ -392,6 +403,18 @@ ol {
 
 .textSmaller {
   color: #ffffff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  letter-spacing: -0.22px;
+  margin-bottom: 60px;
+}
+
+.textSmallerBottom {
+  color: #777;
   text-align: center;
   font-family: Poppins;
   font-size: 11px;
