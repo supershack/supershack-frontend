@@ -1,2 +1,2 @@
-# leaphack-frontend
-Leapwize x Ironhack Frontend Repository
+# leehack-frontend
+Frontend Repository
