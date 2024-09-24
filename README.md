@@ -1,2 +1,2 @@
 # supershack-frontend
-supershack Frontend Repository
+Frontend Repository
