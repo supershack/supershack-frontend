@@ -1,2 +1,2 @@
-# leehack-frontend
+# supershack-frontend
 Frontend Repository
