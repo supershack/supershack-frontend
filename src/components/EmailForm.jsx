@@ -2,7 +2,6 @@ import { useState } from 'react'
 import axios from 'axios'
 
 function EmailForm({ jobId, isEmailSet, onChange }) {
-
     const [email, setEmail] = useState("")
     const [successMessage, setSuccessMessage] = useState(undefined)
     const [errorMessage, setErrorMessage] = useState(undefined)
@@ -16,10 +15,12 @@ function EmailForm({ jobId, isEmailSet, onChange }) {
 
         axios.post("http://localhost:3000/api/users", requestBody)
             .then((response) => {
-                if (response.data.message === "created") {
-                    onChange(true)
+                if (response.data.message == "User created successfully.") {
                     setErrorMessage(undefined)
                     setSuccessMessage("Welcome! You have successfully signed up. Please check your email.")
+                    setTimeout(() => {
+                        onChange(true)  // This line triggers the parent component's state change
+                    }, 2500); // Adjust timing as necessary
                 }
                 else {
                     const errorDescription = response.data.message
@@ -46,11 +47,12 @@ function EmailForm({ jobId, isEmailSet, onChange }) {
                 value={email}
                 onChange={handleEmail}
             />
-            {/* <label
-                className="inputLabel"
-                htmlFor="email">Email
-            </label> */}
-            <p className='textSmaller'>Mit der Anmeldung bestätigst du, dass du einverstanden bist, dass wir dich kontaktieren dürfen, sobald wir den Job für dich gefunden haben oder eine passende Alternative.</p>
+            <p className='textSmaller' style={{ textAlign: 'justify' }}>
+  Mit der Eingabe meiner E-Mail-Adresse und dem Klick auf "Abschicken" erkläre ich mich damit einverstanden, dass die Leapwize GmbH mir regelmäßig Informationen zu Jobvorschlägen und Neuigkeiten per E-Mail zusendet. Weitere Informationen zum Umgang mit meinen Daten finde ich in der{' '}
+  <a href="https://www.leapwize.de/datenschutzerklarung" target="_blank" rel="noopener noreferrer">
+    Datenschutzerklärung
+  </a>.
+</p>
             <button type="submit" className="buttonDefault submit">
                 Abschicken
             </button>
