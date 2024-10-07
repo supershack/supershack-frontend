@@ -121,10 +121,9 @@ function CollectorCardPage() {
                         <p className="chance-text">So hoch ist Deine Chance</p>
                         <p className="description">...einen Job zu finden, der dir genauso gut oder besser gefällt, wie der Errechnete.</p>
                         <p className="join-text">Tritt unserer Community bei und mach 100% draus!</p>
-                        <button className="community-button">
-                        <img src="src/images/wa-icon.png" alt="WhatsApp Icon" className="whatsapp-icon" />
+                        <a href="https://www.rukki.de" className="community-button" target="_blank">
                         Zur Community
-                        </button>                    
+                        </a>
                     </div>
                 </div>
             ) : isHidden ? (
