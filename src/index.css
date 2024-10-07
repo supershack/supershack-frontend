@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px;
   top: 70px;
   width: 90%;
@@ -32,28 +32,30 @@
 
 .defaultPage-container.result {
   width: 100%;
-  height: 120vh;
-  background:
-  repeating-linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.2) 0px,
-    rgba(255, 255, 255, 0.2) 1px,
-    transparent 1px,
-    transparent 50px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.2) 0px,
-      rgba(255, 255, 255, 0.2) 1px,
-      transparent 1px,
-      transparent 50px
-      );
-      background-color: #6354FF;
+  height: 100vh;
+  background-image: url('./images/ex.jpg');
+  background-size: cover; /* Ensures the image covers the whole screen */
+  background-position: center; /* Keeps the image centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 .collectorCard-container.move-up {
-  position: absolute;
+  position: fixed;
   transform: translateY(calc(100dvh*-0.65));
+}
+
+.collectorCard-container.move-right-spinning {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 38vh;
+    height: 56vh;
+    margin-bottom: 57vh;
+    margin-left: 21vh;
+    perspective: 1000px;
+    border: black solid 10px;
+    border-radius: 10px;
+    background-color: black;  
 }
 
 /* These 2 only work for max-width: 470px */
@@ -61,13 +63,14 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 42vh;
-  height: 61vh;
-  margin-bottom: 20px;
+  width: 36vh;
+  height: 54vh;
+  margin-bottom: 67px;
   perspective: 1000px;
   border: black solid 8px; /* Increased border width from 1px to 4px */
   border-radius: 10px;
   background-color: black; /* Ensure background color remains black */
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.721) !important
 }
 
 
@@ -107,14 +110,14 @@
 
 .collectorCard {
   position: relative;
-  width: 95%;
+  width: 33vh;
+  height: 50vh;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   padding: 0;
   top: 7px;
-  height: 57vh;
 }
 
 .logoImage {
@@ -422,7 +425,6 @@ ol {
   font-weight: 275;
   line-height: normal;
   letter-spacing: -0.22px;
-  margin-bottom: 60px;
 }
 
 .numberText {
@@ -466,12 +468,13 @@ ol {
   color: var(--white-main, #FFF);
   text-align: center;
   font-family: Poppins;
-  font-size: 75.485px;
+  font-size: 75px;
   font-style: italic;
   font-weight: 800;
   line-height: 100%; /* 75.485px */
   letter-spacing: -1.51px;
   margin-bottom: 20px;
+  margin-top: 155px;
 }
 
 .faceAnimation-container {
@@ -482,7 +485,7 @@ ol {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(50% + 10px) 50%;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .objectOne-image {
@@ -622,9 +625,14 @@ button {
   align-items: center;
   gap: 10px;
   border-radius: 20px;
-  background: #000000;
+  background: #1F1F1F;
 }
 
+
+.share-icon{
+  width: 24px;
+  height: 24px;
+}
 .shareNotify-container {
   display: flex;
   flex-direction: column;
@@ -649,3 +657,104 @@ button {
   margin-bottom: 70px;
 }
 
+.move-up {
+  animation: slideUp 2s forwards;
+}
+
+@keyframes slideUp {
+  from {
+      transform: translateY(0);
+  }
+  to {
+      transform: translateY(-100%);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.move-right-spinning {
+  animation: flyRightAndSpin 2s forwards;
+}
+
+@keyframes flyRightAndSpin {
+  0% {
+    transform: translateY(-250px) rotate(0deg); 
+  }
+  100% {
+    transform: translateX(100px) rotate(-40deg) rotateY(35deg) rotateX(35deg); 
+  }
+}
+
+.new-design-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.percentage {
+  font-size: 84px; 
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+  margin-top: 20px;
+}
+.chance-text{
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+
+  margin: 10px 0;
+  color: #fff;
+}
+.description {
+  font-size: 16px;
+    margin: 40px !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  color: #b0b0b0;
+}
+
+.join-text  {
+  font-size: 16px;
+    margin: 40px !important;
+    margin-top: 5px !important;
+    margin-bottom: 50px !important;
+  color: #b0b0b0;
+}
+
+.community-button {
+  background-color: #fff ;
+  color:  #000000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 20px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.whatsapp-icon {
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px;
+  margin-top: -7px;
+}
+
+.root-container-div {
+  position: absolute; 
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent; 
+}
